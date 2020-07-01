@@ -1,0 +1,23 @@
+version: '2'
+services: 
+    local-registry:
+        image: registry:latest
+        ports:
+            - "5000:5000"
+        environment: 
+            SETTINGS_FLAVOR: dev
+            STORAGE_PATH: /home/jeff/priv_regi
+        volumes: 
+            - /opt/data/registry:/home/jeff/priv_regi
+        restart: always
+    local-registry-web:
+        image: hyper/docker-registry-web
+        environment: 
+            REGISTRY_URL: 192.168.56.101:5000/v2
+            REGISTRY_NAME: 192.168.56.101:5000
+        ports: 
+            - "9090:8080"
+        # links: 
+        #     - local-registry
+        stdin_open: true
+        tty: true

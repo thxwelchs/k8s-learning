@@ -1,0 +1,24 @@
+version: '2'
+services: 
+    db:
+        image: mariadb
+        ports:
+            - "8889:3306"
+        environment: 
+            MYSQL_DATABASE: database            
+            MYSQL_PASSWORD: test    
+            MYSQL_ROOT_PASSWORD: root        
+            MYSQL_USER: admin            
+        volumes: 
+            - ./mysql:/var/lib/mysql
+        restart: always
+    web:
+        image: tutum/apache-php
+        ports: 
+            - "8008:80"
+        environment: 
+            - ALLOW_OVERRIDE=true
+        links: 
+            - db
+        volumes: 
+            - "./app:/app"

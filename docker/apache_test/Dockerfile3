@@ -1,0 +1,18 @@
+FROM ubuntu:14.04
+
+# MAINTAINER "thxwelchs <thxwelchs@gmail.com>" # MAINTAINER는 deprecated되었다. 대신 아래와 같이 LABEL로 maintainer를 정의한다.
+LABEL maintainer="thxwelchs@gmail.com"
+
+# --no-install-recommends <- 정말 필요한 종속성만 설치한다. 빌드시 퍼포먼스 향상
+RUN apt-get update && apt-get install --no-install-recommends -y \ 
+    apache2
+
+ADD test.html /var/www/html
+
+WORKDIR /var/www/html
+
+RUN ["/bin/bash", "-c", "echo hello >> test.html"]
+
+EXPOSE 80
+
+CMD ["apachectl", "-D", "FOREGROUND"]
