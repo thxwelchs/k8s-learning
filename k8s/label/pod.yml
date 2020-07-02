@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-label-01
+  labels:
+    jobr: web
+    type: prod
+spec:
+  containers:
+    - name: container01
+      image: dbgurum/k8s-lab:initial
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-label-02
+  labels:
+    jobr: db
+    type: prod
+spec:
+  containers:
+    - name: container01
+      image: dbgurum/k8s-lab:initial
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-label-03
+  labels:
+    jobr: srv
+    type: prod
+spec:
+  containers:
+    - name: container01
+      image: dbgurum/k8s-lab:initial
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-label-04
+  labels:
+    jobr: web
+    type: dev
+spec:
+  containers:
+    - name: container01
+      image: dbgurum/k8s-lab:initial
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-label-05
+  labels:
+    jobr: db
+    type: dev
+spec:
+  containers:
+    - name: container01
+      image: dbgurum/k8s-lab:initial
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-label-06
+  labels:
+    jobr: srv
+    type: dev
+spec:
+  containers:
+    - name: container01
+      image: dbgurum/k8s-lab:initial

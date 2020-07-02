@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hi-nodejs-svc1
+spec:
+  selector:
+    app: hi-nodejs
+  # type:  LoadBalancer | ClusterIP | NodePort
+  ports:
+    - port: 8011
+      targetPort:  8000
+  externalIPs:
+    - 192.168.71.132 # Pod가 생성된 Node IP

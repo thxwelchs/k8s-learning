@@ -1,0 +1,10 @@
+# 운영팀의 service (type이 prod인 label pod가 service에 연결된다.)
+kind: Service
+apiVersion: v1
+metadata:
+  name: prod-svc
+spec:
+  selector:
+    type: prod
+  ports:
+  - port: 8080

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-lab-01
+spec:
+  containers:
+  - image: dbgurum/k8s-lab:p8000
+    name: container1
+    ports:
+    - containerPort: 8000
+  - image: dbgurum/k8s-lab:p8080
+    name: container2
+    ports:
+    - containerPort: 8080

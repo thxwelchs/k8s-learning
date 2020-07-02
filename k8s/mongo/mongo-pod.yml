@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mongo-pod
+  labels:
+    app: hi-mongo
+spec:
+  containers:
+    - image: mongo:latest
+      name: mongodb-container 
+      ports:
+      - containerPort: 27017

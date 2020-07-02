@@ -1,0 +1,11 @@
+kind: Service # GCP lb용 service
+apiVersion: v1
+metadata:
+  name: hi-nodejs-svc1
+spec:
+  selector:
+    app: hi-nodejs
+  type: LoadBalancer
+  ports:
+    - port: 8011
+      targetPort:  8000

@@ -1,0 +1,10 @@
+# frontend 개발자의 service (label이 web에 걸린 dev, prod의 두개의 pod가 서비스로 배치된다.)
+kind: Service
+apiVersion: v1
+metadata:
+  name: front-web-svc
+spec:
+  selector:
+    jobr: web
+  ports:
+  - port: 8080

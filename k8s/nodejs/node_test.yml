@@ -1,0 +1,12 @@
+apiVersion: v1
+ind: Pod
+metadata:
+  name: k8s-nodejs-pod1
+  labels: 
+    app: hi-nodejs
+spec:
+  containers:
+  - name: nodejs-container
+    image: thxwelchs/node-test:0.0
+    ports:
+      - containerPort: 8000

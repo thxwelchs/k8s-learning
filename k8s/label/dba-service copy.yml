@@ -1,0 +1,10 @@
+# DBA service (type이 jobr이 DB인 pod가 이 service에 연결된다.)
+kind: Service
+apiVersion: v1
+metadata:
+  name: dba-svc
+spec:
+  selector:
+    jobr: db
+  ports:
+  - port: 8080
