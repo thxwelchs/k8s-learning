@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-customer
+  labels:
+    category: customer
+spec:
+  containers:
+  - image: kubetm/customer
+    name: container
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-customer
+spec:
+  selector:
+    category: customer
+  ports:
+  - port: 8080
+---
